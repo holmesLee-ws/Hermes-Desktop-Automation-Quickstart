@@ -17,7 +17,7 @@ DEFAULT_INSTALL = (
 DEFAULT_HERMES_HOME = DEFAULT_INSTALL.parent
 DEFAULT_REMOTE_URL = "https://github.com/holmesLee-ws/hermes-agent.git"
 DEFAULT_SOURCE_BRANCH = "holmes/live-main"
-PATCH_VERSION = "1.1.0"
+PATCH_VERSION = "1.1.1"
 EXPECTED_COMMIT = "b244576e48206f3ade97cac5d0b8125033970c66"
 LOCAL_SOURCE_REF = "refs/hermes-quickstart/source"
 LOCAL_PATCH_BRANCH = "local/holmes-live-main"
@@ -67,6 +67,26 @@ def optional_output(cwd: Path, *args: str) -> str:
         capture_output=True,
     )
     return result.stdout.strip() if result.returncode == 0 else ""
+
+
+def validate_remote_url(remote_url: str) -> None:
+    if any(char in remote_url for char in ("\0", "\r", "\n")):
+        raise RuntimeError("--remote-url에 제어 문자를 포함할 수 없습니다.")
+
+    segment = r"[A-Za-z0-9](?:[A-Za-z0-9_.-]*[A-Za-z0-9])?"
+    repository = rf"{segment}/{segment}(?:\.git)?"
+    allowed_patterns = (
+        rf"https://github\.com/{repository}",
+        rf"ssh://git@github\.com/{repository}",
+        rf"git@github\.com:{repository}",
+    )
+    if not any(
+        re.fullmatch(pattern, remote_url, flags=re.IGNORECASE | re.ASCII)
+        for pattern in allowed_patterns
+    ):
+        raise RuntimeError(
+            "--remote-url에는 인증정보 없는 GitHub HTTPS/SSH 저장소 URL만 지정하세요."
+        )
 
 
 def parse_args() -> argparse.Namespace:
@@ -154,6 +174,7 @@ def restore_source(install: Path, previous_head: str, previous_branch: str) -> N
 
 def main() -> int:
     args = parse_args()
+    validate_remote_url(args.remote_url)
     print(f"apply-holmes-patch {PATCH_VERSION}")
     install = args.install.resolve()
     hermes_home = args.hermes_home.resolve()

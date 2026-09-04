@@ -365,7 +365,7 @@ figcaption { padding: 11px 7px 3px; color: var(--muted); font-size: 13px; line-h
     <aside class="toc-panel" aria-label="문서 목차">
       <div class="toc-brand">
         <div class="sigil">H</div>
-        <div><b>HERMES QUICK START</b><span>Desktop Automation · v1.4.0</span></div>
+        <div><b>HERMES QUICK START</b><span>Desktop Automation · v1.4.1</span></div>
       </div>
       <nav><div class="toc">
 <ul>
@@ -484,7 +484,7 @@ figcaption { padding: 11px 7px 3px; color: var(--muted); font-size: 13px; line-h
 <h1 class="no_toc" id="hermes">Hermes 기반 데스크탑 업무 자동화</h1>
 <h2 class="no_toc" id="quick-start-guide">Quick Start Guide</h2>
 <p><strong>Windows · Orca · Codex · Hermes Agent · OpenAI Codex OAuth</strong><br>
-문서 버전 1.4.0 · 2026-09-04 · 공개 배포용</p>
+문서 버전 1.4.1 · 2026-09-04 · 공개 배포용</p>
 <blockquote>
 <p>사람은 목표와 승인 경계를 정하고, 에이전트는 PC에서 실행하고 검증하며 기록한다.</p>
 </blockquote>
@@ -1262,7 +1262,7 @@ python &quot;%USERPROFILE%\apply-holmes-patch.py&quot; --install &quot;D:\Apps\h
 python &quot;%USERPROFILE%\apply-holmes-patch.py&quot; --hermes-home &quot;%LOCALAPPDATA%\hermes&quot;
 python &quot;%USERPROFILE%\apply-holmes-patch.py&quot; --branch &quot;holmes/live-main&quot; --expected-commit &quot;b244576e48206f3ade97cac5d0b8125033970c66&quot;
 </code></pre>
-<p><code>--remote-url</code>로 다른 포크를 지정할 수 있지만, 브랜치가 바뀌면 검토가 끝난 정확한 <code>--expected-commit</code>도 함께 지정해야 한다. 이름 있는 Hermes 프로필을 쓴다면 해당 프로필의 홈을 <code>--hermes-home</code>에 전달하고 프로필마다 한 번씩 실행한다.</p>
+<p><code>--remote-url</code>로 다른 GitHub 포크를 지정할 수 있지만, 브랜치가 바뀌면 검토가 끝난 정확한 <code>--expected-commit</code>도 함께 지정해야 한다. 인증정보 없는 GitHub HTTPS/SSH 저장소 URL만 허용하고 그 밖의 문자열은 명령 로그에 도달하기 전에 거부하며, Git remote 설정에는 URL을 저장하지 않는다. 이름 있는 Hermes 프로필을 쓴다면 해당 프로필의 홈을 <code>--hermes-home</code>에 전달하고 프로필마다 한 번씩 실행한다.</p>
 <h3 id="_16">적용 확인과 복구</h3>
 <pre><code class="language-cmd">cd /d &quot;%LOCALAPPDATA%\hermes\hermes-agent&quot;
 git status --short --branch
@@ -1434,7 +1434,7 @@ git reset --hard backup/pre-holmes-YYYYMMDD-HHMMSS
 </ul>
 <hr>
 <h2 id="_21">문서 유지보수 메모</h2>
-<p>현재 문서 버전은 <code>1.4.0</code>이다. <code>versions.json</code>을 문서·패치 스크립트·Wiki 구성요소 버전의 기계 판독 가능한 기준으로 사용하고, 사람이 읽는 목록과 배포 절차는 <code>VERSIONS.md</code>에서 관리한다. <code>build.py</code>는 <code>versions.json</code>에서 HTML의 버전과 날짜를 읽으므로 값을 하드코딩해 서로 어긋나게 만들지 않는다.</p>
+<p>현재 문서 버전은 <code>1.4.1</code>이다. <code>versions.json</code>을 문서·패치 스크립트·Wiki 구성요소 버전의 기계 판독 가능한 기준으로 사용하고, 사람이 읽는 목록과 배포 절차는 <code>VERSIONS.md</code>에서 관리한다. <code>build.py</code>는 <code>versions.json</code>에서 HTML의 버전과 날짜를 읽으므로 값을 하드코딩해 서로 어긋나게 만들지 않는다.</p>
 <p>이 문서는 2026-09-03 Windows 설치 세션, <code>holmes/live-main</code> 고정 커밋 <code>b244576e48206f3ade97cac5d0b8125033970c66</code>, 2026-09-04 Obsidian과 <code>wiki-companion</code> <code>1.0.0</code> 검증을 기준으로 작성했다. 설치 명령, 커밋, 버전, 모델 이름, UI 위치는 업데이트될 수 있다. 배포 전 공식 문서·포크 링크와 조직 계정 정책을 다시 확인하고, 새 캡처로 교체할 때는 계정·인증번호·토큰이 노출되지 않았는지 검수한다.</p>
 <h3 id="_22">버전 목록</h3>
 <table>
@@ -1448,12 +1448,12 @@ git reset --hard backup/pre-holmes-YYYYMMDD-HHMMSS
 <tbody>
 <tr>
 <td>Quick Start 문서</td>
-<td style="text-align: right;"><code>1.4.0</code></td>
+<td style="text-align: right;"><code>1.4.1</code></td>
 <td><code>versions.json</code>의 <code>document.version</code></td>
 </tr>
 <tr>
 <td><code>apply-holmes-patch</code></td>
-<td style="text-align: right;"><code>1.1.0</code></td>
+<td style="text-align: right;"><code>1.1.1</code></td>
 <td>script <code>--version</code>과 <code>versions.json</code></td>
 </tr>
 <tr>
@@ -1469,7 +1469,7 @@ git reset --hard backup/pre-holmes-YYYYMMDD-HHMMSS
 </tbody>
 </table>
 <p>README를 바꾼 뒤에는 HTML과 PDF를 모두 다시 만들고, HTML 문자열 검사와 PDF 텍스트 추출·변경 페이지 시각 검사를 통과해야 배포본으로 본다.</p></div>
-      <footer class="meta-footer">Hermes 기반 데스크탑 업무 자동화 Quick Start Guide · v1.4.0 · 2026-09-04 · 공개 배포용</footer>
+      <footer class="meta-footer">Hermes 기반 데스크탑 업무 자동화 Quick Start Guide · v1.4.1 · 2026-09-04 · 공개 배포용</footer>
     </article>
   </main>
   <script>

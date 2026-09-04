@@ -5,7 +5,7 @@
 ## Quick Start Guide {.no_toc}
 
 **Windows · Orca · Codex · Hermes Agent · OpenAI Codex OAuth**<br>
-문서 버전 1.4.0 · 2026-09-04 · 공개 배포용
+문서 버전 1.4.1 · 2026-09-04 · 공개 배포용
 
 > 사람은 목표와 승인 경계를 정하고, 에이전트는 PC에서 실행하고 검증하며 기록한다.
 
@@ -836,7 +836,7 @@ python "%USERPROFILE%\apply-holmes-patch.py" --hermes-home "%LOCALAPPDATA%\herme
 python "%USERPROFILE%\apply-holmes-patch.py" --branch "holmes/live-main" --expected-commit "b244576e48206f3ade97cac5d0b8125033970c66"
 ```
 
-`--remote-url`로 다른 포크를 지정할 수 있지만, 브랜치가 바뀌면 검토가 끝난 정확한 `--expected-commit`도 함께 지정해야 한다. 이름 있는 Hermes 프로필을 쓴다면 해당 프로필의 홈을 `--hermes-home`에 전달하고 프로필마다 한 번씩 실행한다.
+`--remote-url`로 다른 GitHub 포크를 지정할 수 있지만, 브랜치가 바뀌면 검토가 끝난 정확한 `--expected-commit`도 함께 지정해야 한다. 인증정보 없는 GitHub HTTPS/SSH 저장소 URL만 허용하고 그 밖의 문자열은 명령 로그에 도달하기 전에 거부하며, Git remote 설정에는 URL을 저장하지 않는다. 이름 있는 Hermes 프로필을 쓴다면 해당 프로필의 홈을 `--hermes-home`에 전달하고 프로필마다 한 번씩 실행한다.
 
 ### 적용 확인과 복구
 
@@ -981,7 +981,7 @@ git reset --hard backup/pre-holmes-YYYYMMDD-HHMMSS
 
 ## 문서 유지보수 메모
 
-현재 문서 버전은 `1.4.0`이다. `versions.json`을 문서·패치 스크립트·Wiki 구성요소 버전의 기계 판독 가능한 기준으로 사용하고, 사람이 읽는 목록과 배포 절차는 `VERSIONS.md`에서 관리한다. `build.py`는 `versions.json`에서 HTML의 버전과 날짜를 읽으므로 값을 하드코딩해 서로 어긋나게 만들지 않는다.
+현재 문서 버전은 `1.4.1`이다. `versions.json`을 문서·패치 스크립트·Wiki 구성요소 버전의 기계 판독 가능한 기준으로 사용하고, 사람이 읽는 목록과 배포 절차는 `VERSIONS.md`에서 관리한다. `build.py`는 `versions.json`에서 HTML의 버전과 날짜를 읽으므로 값을 하드코딩해 서로 어긋나게 만들지 않는다.
 
 이 문서는 2026-09-03 Windows 설치 세션, `holmes/live-main` 고정 커밋 `b244576e48206f3ade97cac5d0b8125033970c66`, 2026-09-04 Obsidian과 `wiki-companion` `1.0.0` 검증을 기준으로 작성했다. 설치 명령, 커밋, 버전, 모델 이름, UI 위치는 업데이트될 수 있다. 배포 전 공식 문서·포크 링크와 조직 계정 정책을 다시 확인하고, 새 캡처로 교체할 때는 계정·인증번호·토큰이 노출되지 않았는지 검수한다.
 
@@ -989,8 +989,8 @@ git reset --hard backup/pre-holmes-YYYYMMDD-HHMMSS
 
 | 구성요소 | 버전 | 기준 |
 |---|---:|---|
-| Quick Start 문서 | `1.4.0` | `versions.json`의 `document.version` |
-| `apply-holmes-patch` | `1.1.0` | script `--version`과 `versions.json` |
+| Quick Start 문서 | `1.4.1` | `versions.json`의 `document.version` |
+| `apply-holmes-patch` | `1.1.1` | script `--version`과 `versions.json` |
 | `wiki-companion` | `1.0.0` | `plugin.yaml`과 `versions.json` |
 | Hermes-Wiki schema | `1.0.0` | Wiki `SCHEMA.md`와 `versions.json` |
 

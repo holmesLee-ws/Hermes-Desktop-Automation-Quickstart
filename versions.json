@@ -2,7 +2,7 @@
   "schema_version": 1,
   "document": {
     "name": "Hermes Desktop Automation Quick Start Guide",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "date": "2026-09-04",
     "source": "README.md",
     "html": "Hermes_Desktop_Automation_Quick_Start_Guide.html",
@@ -10,7 +10,7 @@
   },
   "patch_scripts": {
     "apply-holmes-patch": {
-      "version": "1.1.0",
+      "version": "1.1.1",
       "files": [
         "scripts/apply-holmes-patch.py",
         "scripts/apply-holmes-patch.cmd"
@@ -29,6 +29,14 @@
     }
   },
   "history": [
+    {
+      "version": "1.4.1",
+      "date": "2026-09-04",
+      "changes": [
+        "reject credential-bearing remote URLs before command logging",
+        "fetch without persisting Git remote configuration"
+      ]
+    },
     {
       "version": "1.4.0",
       "date": "2026-09-04",
