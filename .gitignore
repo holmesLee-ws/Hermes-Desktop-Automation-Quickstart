@@ -1,0 +1,18 @@
+# Local browser profiles and rendered-output workspaces
+.chrome-*/
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Local review artifacts (not release assets)
+NUL
+preview*.png
+patch-section-preview.png
+assets/screenshots/03-codex-install-orca.png
+assets/screenshots/05-codex-installs-hermes.png
+assets/screenshots/08-hermes-ready.png
+
+# OS/editor files
+.DS_Store
+Thumbs.db

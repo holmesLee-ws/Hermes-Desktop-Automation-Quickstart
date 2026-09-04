@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "document": {
+    "name": "Hermes Desktop Automation Quick Start Guide",
+    "version": "1.4.0",
+    "date": "2026-09-04",
+    "source": "README.md",
+    "html": "Hermes_Desktop_Automation_Quick_Start_Guide.html",
+    "pdf": "Hermes_Desktop_Automation_Quick_Start_Guide.pdf"
+  },
+  "patch_scripts": {
+    "apply-holmes-patch": {
+      "version": "1.1.0",
+      "files": [
+        "scripts/apply-holmes-patch.py",
+        "scripts/apply-holmes-patch.cmd"
+      ],
+      "expected_commit": "b244576e48206f3ade97cac5d0b8125033970c66"
+    }
+  },
+  "components": {
+    "wiki-companion-plugin": {
+      "version": "1.0.0",
+      "install_path": "%LOCALAPPDATA%/hermes/plugins/wiki-companion"
+    },
+    "wiki-schema": {
+      "version": "1.0.0",
+      "install_path": "%USERPROFILE%/Documents/Hermes-Wiki"
+    }
+  },
+  "history": [
+    {
+      "version": "1.4.0",
+      "date": "2026-09-04",
+      "changes": [
+        "public-release privacy sanitization",
+        "pinned-commit deployment independent of moving branch HEAD",
+        "sanitized screenshots and reproducible build dependency"
+      ]
+    },
+    {
+      "version": "1.3.0",
+      "date": "2026-09-04",
+      "changes": [
+        "Obsidian installation and Hermes-Wiki vault setup",
+        "human-work-centered Wiki structure",
+        "same-turn verified knowledge filing and accumulated candidate review policy",
+        "wiki-companion plugin setup and verification",
+        "centralized document and patch-script version manifest"
+      ]
+    },
+    {
+      "version": "1.2.0",
+      "date": "2026-09-03",
+      "changes": ["Holmes patch deployment, rollback, and three-layer verification guidance"]
+    },
+    {
+      "version": "1.1.0",
+      "date": "2026-09-03",
+      "changes": ["Initial Windows/Orca/Codex/Hermes quick-start guide"]
+    }
+  ]
+}
